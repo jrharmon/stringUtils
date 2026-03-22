@@ -37,6 +37,9 @@ Filters lines based on whether they contain a search string.
 - **Delete lines** — `With text` (removes matching lines) or `Without text` (keeps only matching lines)
 - **Search text** — the string to match
 
+### Find Non-ASCII
+Finds all non-ASCII characters (code point > 127) in the text and returns each occurrence with up to 5 characters of surrounding context. Consecutive non-ASCII characters are grouped as a single instance; ASCII characters between them create separate instances. No parameters.
+
 ### Format JSON
 Reformats JSON with 2-space indentation. Uses a character-walk approach (no `JSON.parse`) so it degrades gracefully on invalid JSON rather than erroring. No parameters.
 
