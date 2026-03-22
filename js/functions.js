@@ -196,6 +196,27 @@ window.StringFunctions = (function () {
         var found = line.indexOf(search) !== -1;
         return withText ? !found : found;
       }).join('\n');
+    },
+
+    'find-non-ascii': function (text) {
+      var results = [];
+      var i = 0;
+      while (i < text.length) {
+        if (text.charCodeAt(i) > 127) {
+          // Start of a non-ASCII run
+          var runStart = i;
+          while (i < text.length && text.charCodeAt(i) > 127) {
+            i++;
+          }
+          var runEnd = i; // exclusive
+          var start = Math.max(0, runStart - 5);
+          var end = Math.min(text.length, runEnd + 5);
+          results.push(text.slice(start, end));
+        } else {
+          i++;
+        }
+      }
+      return results.length ? results.join('\n') : '(no non-ASCII characters found)';
     }
   };
 }());

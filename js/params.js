@@ -153,6 +153,11 @@ window.FUNCTION_PARAMS = {
     html() { return ''; }
   },
 
+  'find-non-ascii': {
+    label: 'Find Non-ASCII',
+    html() { return ''; }
+  },
+
   'delete-lines': {
     label: 'Delete Lines With/Without',
     html() {
